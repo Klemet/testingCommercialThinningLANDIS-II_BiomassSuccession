@@ -1,0 +1,31 @@
+LandisData  "Output Biomass"
+
+Timestep  5
+
+MakeTable no  << Optional parameter
+
+Species       ABIE.BAL
+   ACER.RUB
+   ACER.SAH
+   BETU.ALL
+   BETU.PAP
+   FAGU.GRA
+   LARI.LAR
+   LARI.HYB
+   PICE.GLA
+   PICE.MAR
+   PICE.RUB
+   PINU.BAN
+   PINU.RES
+   PINU.STR
+   POPU.TRE
+   POPU.HYB
+   QUER.RUB
+   THUJ.SPP.ALL
+   TSUG.CAN
+
+MapNames  output/biomass/biomass-{species}-{timestep}.img
+
+DeadPools woody
+	  
+MapNames  output/biomass/biomass-{pool}-{timestep}.img

@@ -1,0 +1,80 @@
+>> HARVEST MODULE PARAMETER FILE
+
+>>------------------------------------------------------------------------
+>> TYPE OF DATA
+
+LandisData "Biomass Harvest"
+
+>>------------------------------------------------------------------------
+>> TIMESTEP
+
+Timestep 5
+
+>>------------------------------------------------------------------------
+>> MANAGEMENT AREAS: the .gis file which defines the management areas.
+
+ManagementAreas "./input/disturbances/harvesting/management_area.tif"
+
+>>------------------------------------------------------------------------
+>> STANDS: the .gis file which defines the stands. A stand can belong to
+>> one and only one management area.
+
+Stands "./input/disturbances/harvesting/management_area.tif"
+
+>>------------------------------------------------------------------------
+>> PRESCRIPTIONS
+
+Prescription EC
+
+>> STAND RANKING:
+StandRanking MaxCohortAge
+>> STAND QUALIFICATION FOR CUTTING:
+MinimumAge 30
+>> SITE SELECTION:
+>> 		      				       Minimum Size Maximum Size
+>> 			  				       ---------- 	 ----------
+SiteSelection CompleteStandSpread		1			1000000
+>> COHORT REMOVAL METHOD:
+CohortsRemoved SpeciesList
+>> Species 	   Cohorts removed
+>> ------- 	   ---------------
+   ABIE.BAL 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   ACER.RUB 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   ACER.SAH 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   BETU.ALL 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   BETU.PAP 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   FAGU.GRA 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   LARI.LAR 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   LARI.HYB 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   PICE.GLA 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   PICE.MAR 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   PICE.RUB 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   PINU.BAN 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   PINU.RES 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   PINU.STR 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   POPU.TRE 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   POPU.HYB 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   QUER.RUB 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   THUJ.SPP.ALL   1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+   TSUG.CAN 	  1-30(80%) 31-50(66%) 51-70(60%) 71-90(60%) 91-100(40%) 101-120(5%)
+
+
+>>-----------------------------------------------------------------
+>> HARVEST IMPLEMENTATION TABLE
+>> The following table defines which management areas (defined in the
+>> ManagementArea file) are treated by which prescription(s).
+
+HarvestImplementations
+
+>> Mgmt Area Prescription   Harvest Area   Begin Time   End Time
+>> --------- ------------   ------------   ----------   --------
+        1          EC            100%           5           5
+
+>>------------------------------------------------------------------------
+>> OUTPUT FILES
+
+PrescriptionMaps ./output/harvest/prescripts-{timestep}.img
+BiomassMaps ./output/harvest/biomass-removed-{timestep}.img
+EventLog ./output/harvest/log.csv
+SummaryLog ./output/harvest/summarylog.csv
+>>------------------------------------------------------------------------

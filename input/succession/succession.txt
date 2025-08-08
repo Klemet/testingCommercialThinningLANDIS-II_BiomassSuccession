@@ -1,0 +1,113 @@
+LandisData "Biomass Succession"
+
+Timestep 5
+
+SeedingAlgorithm NoDispersal
+>> NoDispersal or UniversalDispersal or WardSeedDispersal
+
+InitialCommunities "./input/succession/initial_communities.txt"
+InitialCommunitiesMap "./input/succession/initial_community.tif"
+
+>> ClimateConfigFile can be inserted here
+
+CalibrateMode no << optional parameter
+
+SpinupMortalityFraction 0.01 << supplementary mortality during initiation of biomass
+
+>> **********************
+   MinRelativeBiomass
+
+>> Shade
+>> Class Ecoregions
+>> ----- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           328     
+1          20.00%     
+2          40.00%      
+3          50.00%   
+4          70.00%    
+5          90.00%   
+
+>> ****************************
+SufficientLight
+>> Spp Shade            Probability
+>> Class                by Actual Shade
+>> ----------  ---------------------------------
+>>             0     1     2     3     4     5
+     1         1     0.5   0     0     0     0
+     2         1     1     0.5   0     0     0
+     3         1     1     1     0.5   0     0
+     4         1     1     1     1     0.5   0
+     5         1     1     1     1     1     1
+>> **************************************************
+
+SpeciesDataFile	./input/succession/SpeciesBiomassSuccessionParameters.csv
+
+EcoregionParameters
+>>      AET
+>>      mm    
+328        600      
+
+SpeciesEcoregionDataFile ./input/succession/biomass-succession-dynamic-inputs_VpRE.csv
+
+>> Apparently useless since the last version. It's in the exemples of the manual and
+>> in the files of Yan's team, but LANDIS-II won't take it and want direct parameters in
+>> this file.
+>> AgeOnlyDisturbances:BiomassParameters ./input/succession/age-only-disturbances.txt
+
+>> This parametrization is made pretty randomly by me. I try to interpret
+>> what is in the age-only-disturbance.txt that Yan's team gave me.
+>> Nothing solid.
+FireReductionParameters
+>> Fire Severity      Wood Reduction      Litter Reduction
+>> -------------      --------------      ----------------
+        1                   0                    0.3
+        2                   0.1                  0.4
+		3                   0.3                  0.6
+		4                   0.4                  0.8
+		5                   0.5                  1
+
+HarvestReductionParameters
+>> Most of these are estimated arbitrarly, as they are not useful to our study.
+>> Only useful if one wants to consider dead biomass or litter biomass.
+>> The asterisks are here to adapt to any new prescription made by magic harvest for planting.
+>> 		Prescription     	Dead Wood     Dead Litter     Cohort wood     Cohort Leaf
+>>     		name         	Reduction      Reduction        Removal         Removal
+>> 		-------------    	---------     ------------    ------------    ------------
+			CPR*	 		0.1        		0.1        		0.5        0.8
+			CT*		        0.1        		0.1        		0.5        0.8				
+			CJ*		        0.1        		0.1        		0.5        0.8
+			CP*		        0.1        		0.1        		0.5        0.8
+			EPC*	        0.1        		0.1        		0.5        0.8
+			CPRS_U*		    0.1        		0.1        		0.5        0.8
+			CDL*	        0.1        		0.1        		0.5        0.8
+			CPI_RL*		    0.1        		0.1        		0.5        0.8
+			CPI_CP*		    0.1        		0.1        		0.5        0.8
+			EPC_SYS*	    0.1        		0.1        		0.5        0.8
+			CJG*	        0.1        		0.1        		0.5        0.8
+			CEA*	        0.1        		0.1        		0.5        0.8
+			CJT*	        0.1        		0.1        		0.5        0.8
+			CPR_BA*		    0.1        		0.1        		0.5        0.8
+			EC*		        0.1        		0.1        		0.5        0.8
+			CPS*	        0.1        		0.1        		0.5        0.8
+			CPF*	        0.1        		0.1        		0.5        0.8
+			CPT*	        0.1        		0.1        		0.5        0.8
+			CJPG*		    0.1        		0.1        		0.5        0.8
+			CAM*	        0.1        		0.1        		0.5        0.8
+			CPC*	        0.1        		0.1        		0.5        0.8
+			CJP*	        0.1        		0.1        		0.5        0.8
+			CPR-NoPlant*    0.1        		0.1        		0.5        0.8
+			CPR-PICE.MAR*   0.1        		0.1        		0.5        0.8
+			CPR-PINU.BAN*   0.1        		0.1        		0.5        0.8
+			CPR-PICE.GLA*	0.1        		0.1        		0.5        0.8
+			CT-NoPlant*	    0.1        		0.1        		0.5        0.8
+			CT-PICE.MAR*    0.1        		0.1        		0.5        0.8
+			CT-PINU.BAN*    0.1        		0.1        		0.5        0.8
+			CT-PICE.GLA*    0.1        		0.1        		0.5        0.8
+			CPT-NoPlant*    0.1        		0.1        		0.5        0.8
+			CPT-PICE.MAR*	    0.1        		0.1        		0.5        0.8
+			CPT-PINU.BAN*	    0.1        		0.1        		0.5        0.8
+			CPT-PICE.GLA*	    0.1        		0.1        		0.5        0.8
+			CPRS_U-NoPlant*	    0.1        		0.1        		0.5        0.8
+			CPRS_U-PICE.MAR*    0.1        		0.1        		0.5        0.8
+			CPRS_U-PINU.BAN*    0.1        		0.1        		0.5        0.8
+			CPRS_U-PICE.GLA*    0.1        		0.1        		0.5        0.8
